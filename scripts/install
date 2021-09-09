@@ -54,7 +54,7 @@ ynh_app_setting_set --app=$app --key=path --value=$path_url
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression --message="Finding an available port..." --time --weight=1
+ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find an available port
 port=$(ynh_find_port --port=8095)
@@ -86,7 +86,7 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --time --weight=1
+ynh_script_progression --message="Setting up source files..." --weight=1
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
@@ -100,7 +100,7 @@ chown -R $app:www-data "$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --time --weight=1
+ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -126,13 +126,13 @@ ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --targ
 ynh_add_systemd_config
 
 #=================================================
-# INSTALL CRYPTPAD
+# INSTALL QUESTIONFUL
 #=================================================
-ynh_script_progression --message="Building CryptPad... (this will take some time and resources!)" --weight=60
+ynh_script_progression --message="Building $app... (this will take some time and resources!)" --weight=60
 
 pushd "$final_path"
 	ynh_use_nodejs
-	ynh_exec_warn_less npm install #--allow-root
+	ynh_exec_warn_less npm install --allow-root
 popd
 
 #=================================================
