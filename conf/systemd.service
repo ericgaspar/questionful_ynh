@@ -6,10 +6,10 @@ After=network.target
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__
+WorkingDirectory=__FINALPATH__/
 Environment=PATH=__ENV_PATH__
 Environment=NODE_ENV=production
-ExecStart=__YNH_NODE__ start
+ExecStart=__YNH_NPM__ start
 Restart=always
 
 # Sandboxing options to harden security
