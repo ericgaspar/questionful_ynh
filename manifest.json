@@ -11,9 +11,6 @@
     "upstream": {
         "license": "GPL-3.0-only",
         "website": "https://questionful.org/",
-        "demo": "https://demo.example.com",
-        "admindoc": "https://yunohost.org/packaging_apps",
-        "userdoc": "https://yunohost.org/apps",
         "code": "https://github.com/alextselegidis/questionful"
     },
     "license": "GPL-3.0-only",
@@ -22,7 +19,7 @@
         "email": ""
     },
     "requirements": {
-        "yunohost": ">= 4.2.4"
+        "yunohost": ">= 4.3.0"
     },
     "multi_instance": true,
     "services": [
@@ -32,8 +29,7 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "path",
