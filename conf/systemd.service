@@ -8,8 +8,9 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
 Environment=PATH=__ENV_PATH__
+Environment=PORT=__PORT__
 Environment=NODE_ENV=production
-ExecStart=__YNH_NPM__ start -p __PORT__
+ExecStart=__YNH_NPM__ start
 Restart=always
 
 # Sandboxing options to harden security
